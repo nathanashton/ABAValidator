@@ -1,1 +1,1 @@
-# ABAValidator
+Simple WPF program to validate an Australian Bankers Association (ABA) file. 
