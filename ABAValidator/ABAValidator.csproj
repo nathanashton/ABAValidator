@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9A54446-7D69-4CDA-8CF0-5B59E4D60E97}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ABAValidator</RootNamespace>
+    <AssemblyName>ABAValidator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Syncfusion.Shared.Wpf, Version=13.2451.0.29, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.WPF, Version=13.2450.0.29, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddFields.cs" />
+    <Compile Include="BodyFields\BodyField1.cs" />
+    <Compile Include="BodyFields\BodyField10.cs" />
+    <Compile Include="BodyFields\BodyField11.cs" />
+    <Compile Include="BodyFields\BodyField12.cs" />
+    <Compile Include="BodyFields\BodyField2.cs" />
+    <Compile Include="BodyFields\BodyField3.cs" />
+    <Compile Include="BodyFields\BodyField4.cs" />
+    <Compile Include="BodyFields\BodyField5.cs" />
+    <Compile Include="BodyFields\BodyField6.cs" />
+    <Compile Include="BodyFields\BodyField8.cs" />
+    <Compile Include="BodyFields\BodyField9.cs" />
+    <Compile Include="BodyFields\Rules\BodyField10Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField10Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField11Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField11Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField11Rule3.cs" />
+    <Compile Include="BodyFields\Rules\BodyField12Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField12Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField12Rule3.cs" />
+    <Compile Include="BodyFields\Rules\BodyField1Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField2Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField2Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField3Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField3Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField3Rule3.cs" />
+    <Compile Include="BodyFields\Rules\BodyField4Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField5Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField6Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField6Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField6Rule3.cs" />
+    <Compile Include="BodyFields\BodyField7.cs" />
+    <Compile Include="BodyFields\Rules\BodyField7Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField7Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField7Rule3.cs" />
+    <Compile Include="BodyFields\Rules\BodyField8Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField8Rule2.cs" />
+    <Compile Include="BodyFields\Rules\BodyField8Rule3.cs" />
+    <Compile Include="BodyFields\Rules\BodyField9Rule1.cs" />
+    <Compile Include="BodyFields\Rules\BodyField9Rule2.cs" />
+    <Compile Include="BoolToImageConverter.cs" />
+    <Compile Include="FooterFields\FooterField1.cs" />
+    <Compile Include="FooterFields\FooterField2.cs" />
+    <Compile Include="FooterFields\FooterField3.cs" />
+    <Compile Include="FooterFields\FooterField4.cs" />
+    <Compile Include="FooterFields\FooterField5.cs" />
+    <Compile Include="FooterFields\FooterField6.cs" />
+    <Compile Include="FooterFields\FooterField7.cs" />
+    <Compile Include="FooterFields\FooterField8.cs" />
+    <Compile Include="FooterFields\FooterField9.cs" />
+    <Compile Include="FooterFields\Rules\FooterField1Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField2Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField3Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField4Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField4Rule2.cs" />
+    <Compile Include="FooterFields\Rules\FooterField4Rule3.cs" />
+    <Compile Include="FooterFields\Rules\FooterField5Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField5Rule2.cs" />
+    <Compile Include="FooterFields\Rules\FooterField5Rule3.cs" />
+    <Compile Include="FooterFields\Rules\FooterField6Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField6Rule2.cs" />
+    <Compile Include="FooterFields\Rules\FooterField6Rule3.cs" />
+    <Compile Include="FooterFields\Rules\FooterField7Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField8Rule1.cs" />
+    <Compile Include="FooterFields\Rules\FooterField8Rule2.cs" />
+    <Compile Include="FooterFields\Rules\FooterField8Rule3.cs" />
+    <Compile Include="FooterFields\Rules\FooterField9Rule1.cs" />
+    <Compile Include="HeaderFields\HeaderField1.cs" />
+    <Compile Include="HeaderFields\HeaderField10.cs" />
+    <Compile Include="HeaderFields\HeaderField2.cs" />
+    <Compile Include="HeaderFields\HeaderField3.cs" />
+    <Compile Include="HeaderFields\HeaderField4.cs" />
+    <Compile Include="HeaderFields\HeaderField5.cs" />
+    <Compile Include="HeaderFields\HeaderField6.cs" />
+    <Compile Include="HeaderFields\HeaderField7.cs" />
+    <Compile Include="HeaderFields\HeaderField8.cs" />
+    <Compile Include="HeaderFields\HeaderField9.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField10Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField1Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField2Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField3Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField3Rule2.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField3Rule3.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField4Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField5Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField6Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField6Rule2.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField6Rule3.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField7Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField7Rule2.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField7Rule3.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField8Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField8Rule2.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField8Rule3.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField9Rule1.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField9Rule2.cs" />
+    <Compile Include="HeaderFields\Rules\HeaderField9Rule3.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Interfaces\IRule.cs" />
+    <Compile Include="Interfaces\IField.cs" />
+    <Compile Include="Result.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScrollIntoViewForListBox.cs" />
+    <Compile Include="TreeView\TreeViewField.cs" />
+    <Compile Include="TreeView\TreeViewLine.cs" />
+    <Compile Include="TreeView\TreeViewRule.cs" />
+    <Compile Include="ViewModel.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Lines.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NotifyBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cross.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="tick.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
