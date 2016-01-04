@@ -28,9 +28,9 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="true">
-                                <Setter TargetName="Border" Property="BorderBrush" Value="DarkBlue" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Yellow" />
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1" />
-                                <Setter TargetName="Border" Property="Background" Value="#EEFAFD" />
+                                <Setter TargetName="Border" Property="Background" Value="Transparent" />
 
 
                             </Trigger>
@@ -75,7 +75,7 @@
         <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 
 
-        <ListBox ItemContainerStyle="{StaticResource SimpleListBoxItem}" FontFamily="Courier New" Margin="10"
+        <ListBox Background="Black"  ItemContainerStyle="{StaticResource SimpleListBoxItem}" FontFamily="Courier New" Margin="10"
                  MouseEnter="lb_MouseEnter" MouseDown="lb_MouseDown" Grid.Row="1"
                  Grid.Column="0"
                  x:Name="lb"
@@ -89,10 +89,16 @@
                     <WrapPanel>
                         <Label FontSize="12" VerticalContentAlignment="Center" Height="20"
                                HorizontalContentAlignment="Center" Width="25" FontFamily="Courier New"
-                               Content="{Binding LineNumber}" Margin="0,0,10,0" FontWeight="Bold" />
-                        <Label FontSize="12" VerticalContentAlignment="Center" Height="20" FontFamily="Courier New"
-                               Content="{Binding CharactersString}" />
+                               Content="{Binding LineNumber}" Margin="0,0,10,0" FontWeight="Bold" Foreground="White" />
+                        <Label FontSize="12" VerticalContentAlignment="Center" Height="20" Foreground="White"  FontFamily="Courier New">
+                            <TextBlock Text="{Binding CharactersString}">
+                                <TextBlock.TextEffects>
+                                    <TextEffect PositionStart="{Binding StartHighlight}" PositionCount="{Binding EndHighlight}" Foreground="Yellow"/>
+                                </TextBlock.TextEffects>
+                            </TextBlock>
+                        </Label>
                     </WrapPanel>
+                    
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -114,7 +120,7 @@
                     </StackPanel>
                 </HierarchicalDataTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type treeView:TreeViewField}" ItemsSource="{Binding Rules}">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" MouseDown="StackPanel_MouseDown">
 
                         <Image Width="15" Height="15"
                                Source="{Binding Path=Pass, Converter={StaticResource BoolImageConverter}}" />

@@ -16,6 +16,7 @@
 
     public class ViewModel : NotifyBase
     {
+
         private readonly ObservableCollection<IField> _fieldResults;
         private Brush _borderBrush;
         private Lines _lines;
@@ -36,6 +37,10 @@
             Results = CollectionViewSource.GetDefaultView(_fieldResults);
             Results.GroupDescriptions.Add(new PropertyGroupDescription("RuleLine"));
         }
+
+ 
+
+
 
         public object SelectedItem
         {

@@ -7,6 +7,9 @@
 
     public class Line : NotifyBase
     {
+
+        private int _startHighlight;
+        private int _endHighlight;
         public Line()
         {
             Characters = new ObservableCollection<char>();
@@ -69,6 +72,26 @@
                 asciiList.Add(c);
             }
             return asciiList;
+        }
+
+        public int StartHighlight
+        {
+            get { return _startHighlight; }
+            set
+            {
+                _startHighlight = value;
+                NotifyPropertyChanged("StartHighlight");
+            }
+        }
+
+        public int EndHighlight
+        {
+            get { return _endHighlight; }
+            set
+            {
+                _endHighlight = value;
+                NotifyPropertyChanged("EndHighlight");
+            }
         }
     }
 }
