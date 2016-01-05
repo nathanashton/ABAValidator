@@ -74,8 +74,8 @@
     </ApplicationDefinition>
     <Compile Include="AddFields.cs" />
     <Compile Include="BodyFields\BodyField1.cs" />
-    <Compile Include="BodyFields\BodyField10.cs" />
-    <Compile Include="BodyFields\BodyField11.cs" />
+    <Compile Include="BodyFields\FixedFields\BodyField10.cs" />
+    <Compile Include="BodyFields\FixedFields\BodyField11.cs" />
     <Compile Include="BodyFields\BodyField12.cs" />
     <Compile Include="BodyFields\BodyField2.cs" />
     <Compile Include="BodyFields\BodyField3.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="BodyFields\BodyField6.cs" />
     <Compile Include="BodyFields\BodyField8.cs" />
     <Compile Include="BodyFields\BodyField9.cs" />
+    <Compile Include="BodyFields\Rules\BlankFilled.cs" />
     <Compile Include="BodyFields\Rules\BodyField10Rule1.cs" />
     <Compile Include="BodyFields\Rules\BodyField10Rule2.cs" />
     <Compile Include="BodyFields\Rules\BodyField11Rule1.cs" />
@@ -112,6 +113,12 @@
     <Compile Include="BodyFields\Rules\BodyField8Rule3.cs" />
     <Compile Include="BodyFields\Rules\BodyField9Rule1.cs" />
     <Compile Include="BodyFields\Rules\BodyField9Rule2.cs" />
+    <Compile Include="BodyFields\Rules\LeftJustified.cs" />
+    <Compile Include="BodyFields\Rules\MustBeOne.cs" />
+    <Compile Include="BodyFields\Rules\NotAllBlanks.cs" />
+    <Compile Include="BodyFields\Rules\NumericOnly.cs" />
+    <Compile Include="BodyFields\Rules\RightJustified.cs" />
+    <Compile Include="BodyFields\Rules\ValidCharacterSet.cs" />
     <Compile Include="BoolToImageConverter.cs" />
     <Compile Include="FooterFields\FooterField1.cs" />
     <Compile Include="FooterFields\FooterField2.cs" />

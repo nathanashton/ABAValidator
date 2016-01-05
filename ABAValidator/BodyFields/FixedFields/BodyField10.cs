@@ -4,21 +4,21 @@
     using Interfaces;
     using Rules;
 
-    public class BodyField11 : IField
+    public class BodyField10 : IField
     {
-        public BodyField11(Line line)
+        public BodyField10(Line line)
         {
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
-            CharacterPositionStart = 97;
-            CharacterPositionEnd = 112;
-            FieldDescription = "Name of remitter";
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
+            CharacterPositionStart = 88;
+            CharacterPositionEnd = 96;
+            FieldDescription = "Account Number";
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,9 +36,8 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField11Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField11Rule2(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField11Rule3(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new RightJustified(Line, this));
+            Rules.Add(new BlankFilled(Line, this));
         }
     }
 }

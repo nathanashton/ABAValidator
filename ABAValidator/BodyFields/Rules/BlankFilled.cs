@@ -1,17 +1,16 @@
 ﻿namespace ABAValidator.BodyFields.Rules
 {
-    using System;
     using Interfaces;
+    using System;
 
-    public class BodyField10Rule1 : IRule
+    public class BlankFilled : IRule
     {
-        public BodyField10Rule1(Line line, IField field)
+        public BlankFilled(Line line, IField field)
         {
             Line = line;
-            Specification = "Must be numeric - blank filled";
+            Specification = "Blank Filled";
         }
 
-        public int Length { get; set; }
         public Line Line { get; set; }
         public string Specification { get; set; }
         public IField Field { get; set; }

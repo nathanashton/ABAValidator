@@ -11,5 +11,7 @@
         Line Line { get; set; }
         List<Result> RuleResults { get; set; }
         void RunRules();
+        int Length { get; set; }
+
     }
 }

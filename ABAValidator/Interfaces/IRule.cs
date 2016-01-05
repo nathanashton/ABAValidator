@@ -4,8 +4,7 @@
     {
         Line Line { get; set; }
         string Specification { get; set; }
-        int CharacterPositionStart { get; set; }
-        int CharacterPositionEnd { get; set; }
+        IField Field { get; set; }
         Result Validate();
     }
 }

@@ -4,15 +4,17 @@
 
     public class BodyField10Rule2 : IRule
     {
-        public BodyField10Rule2(Line line, int start, int end)
+        public BodyField10Rule2(Line line)
         {
             Line = line;
-            CharacterPositionStart = start;
-            CharacterPositionEnd = end;
+            Length = 9;
+            CharacterPositionStart = 88;
+            CharacterPositionEnd = 96;
             Specification = "Right justified";
         }
 
         public Line Line { get; set; }
+        public int Length { get; set; }
         public string Specification { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
