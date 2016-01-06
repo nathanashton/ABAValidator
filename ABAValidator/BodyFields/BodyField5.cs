@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 19;
             CharacterPositionEnd = 20;
             FieldDescription = "Transaction Code";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,7 +36,8 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField5Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new NumericOnly(Line, this));
+            Rules.Add(new ValidTransactionCode(Line, this));
         }
     }
 }

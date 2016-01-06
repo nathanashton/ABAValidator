@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 18;
             CharacterPositionEnd = 18;
             FieldDescription = "Indicator";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,7 +36,7 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField4Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new ValidIndicator(Line, this));
         }
     }
 }

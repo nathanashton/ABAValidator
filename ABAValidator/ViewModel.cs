@@ -9,7 +9,6 @@
     using System.Windows.Data;
     using System.Windows.Media;
     using BodyFields;
-    using HeaderFields;
     using Interfaces;
     using Microsoft.Win32;
     using TreeView;
@@ -309,8 +308,8 @@
                             Specification = rule.Rule.Specification,
                             ExtractedText =
                                 "(" +
-                                rule.Rule.Line.GetCharRangeAsString(rule.Rule.CharacterPositionStart,
-                                    rule.Rule.CharacterPositionEnd) + ")",
+                                rule.Rule.Line.GetCharRangeAsString(rule.Rule.Field.CharacterPositionStart,
+                                    rule.Rule.Field.CharacterPositionEnd) + ")",
                             LineNumber = lineNumber.LineNumber
                         };
                         f.Rules.Add(t);

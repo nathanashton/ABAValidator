@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 63;
             CharacterPositionEnd = 80;
             FieldDescription = "Lodgement Reference";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,9 +36,10 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField8Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField8Rule2(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField8Rule3(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new ValidCharacterSet(Line, this));
+            Rules.Add(new NotAllBlanks(Line, this));
+            Rules.Add(new LeftJustified(Line, this));
+            Rules.Add(new BlankFilled(Line, this));
         }
     }
 }

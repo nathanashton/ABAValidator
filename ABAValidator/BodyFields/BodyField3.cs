@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 9;
             CharacterPositionEnd = 17;
             FieldDescription = "Account number to be credited / debited";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,9 +36,10 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField3Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField3Rule2(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField3Rule3(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new NotAllBlanks(Line, this));
+            Rules.Add(new NotAllZeroes(Line, this));
+            Rules.Add(new RightJustified(Line, this));
+            Rules.Add(new BlankFilled(Line, this));
         }
     }
 }

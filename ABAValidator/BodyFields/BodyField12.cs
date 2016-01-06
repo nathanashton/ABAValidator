@@ -11,7 +11,7 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 113;
             CharacterPositionEnd = 120;
             FieldDescription = "Amount of Withholding Tax";
@@ -19,6 +19,7 @@
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,9 +37,10 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField12Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField12Rule2(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField12Rule3(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new NumericOnly(Line, this));
+            Rules.Add(new RightJustified(Line, this));
+            Rules.Add(new ZeroFilled(Line, this));
+            Rules.Add(new Unsigned(Line, this));
         }
     }
 }

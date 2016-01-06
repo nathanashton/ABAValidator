@@ -1,21 +1,19 @@
-﻿namespace ABAValidator.HeaderFields.Rules
+﻿namespace ABAValidator.BodyFields.Rules
 {
     using Interfaces;
+    using System;
 
-    public class HeaderField1Rule1 : IRule
+    public class MustBeZero : IRule
     {
-        public HeaderField1Rule1(Line line, int start, int end)
+        public MustBeZero(Line line, IField field)
         {
             Line = line;
-            CharacterPositionStart = start;
-            CharacterPositionEnd = end;
-            Specification = "Must be '0'";
+            Specification = "Must be number 0";
         }
 
         public Line Line { get; set; }
         public string Specification { get; set; }
-        public int CharacterPositionStart { get; set; }
-        public int CharacterPositionEnd { get; set; }
+        public IField Field { get; set; }
 
         public Result Validate()
         {

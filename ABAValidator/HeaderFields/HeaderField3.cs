@@ -1,4 +1,4 @@
-﻿namespace ABAValidator.HeaderFields
+﻿namespace ABAValidator.BodyFields
 {
     using System.Collections.Generic;
     using Interfaces;
@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 19;
             CharacterPositionEnd = 20;
             FieldDescription = "Reel sequence number";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,9 +36,7 @@
 
         private void AddRules()
         {
-            Rules.Add(new HeaderField3Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new HeaderField3Rule2(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new HeaderField3Rule3(Line, CharacterPositionStart, CharacterPositionEnd));
+            //TODO
         }
     }
 }

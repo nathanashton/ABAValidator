@@ -1,25 +1,23 @@
 ﻿namespace ABAValidator.BodyFields.Rules
 {
     using Interfaces;
+    using System;
 
-    public class BodyField9Rule2 : IRule
+    public class HyphenInPositionFive : IRule
     {
-        public BodyField9Rule2(Line line, int start, int end)
+        public HyphenInPositionFive(Line line, IField field)
         {
             Line = line;
-            CharacterPositionStart = start;
-            CharacterPositionEnd = end;
-            Specification = "Must have hyphen at position 4";
+            Specification = "Hyphen in position 5";
         }
 
         public Line Line { get; set; }
         public string Specification { get; set; }
-        public int CharacterPositionStart { get; set; }
-        public int CharacterPositionEnd { get; set; }
+        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharAsString(84);
+            var result = Line.GetCharAsString(5);
             if (result == "-")
             {
                 return new Result().ResultPass(this);

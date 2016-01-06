@@ -1,26 +1,24 @@
 ﻿namespace ABAValidator.BodyFields.Rules
 {
     using Interfaces;
+    using System;
 
-    public class BodyField1Rule1 : IRule
+    public class MustBeSeven : IRule
     {
-        public BodyField1Rule1(Line line, int start, int end)
+        public MustBeSeven(Line line, IField field)
         {
             Line = line;
-            CharacterPositionStart = start;
-            CharacterPositionEnd = end;
-            Specification = "Must be '1'";
+            Specification = "Must be number 7";
         }
 
         public Line Line { get; set; }
         public string Specification { get; set; }
-        public int CharacterPositionStart { get; set; }
-        public int CharacterPositionEnd { get; set; }
+        public IField Field { get; set; }
 
         public Result Validate()
         {
             var result = Line.GetCharAsString(1);
-            if (result == "1")
+            if (result == "7")
             {
                 return new Result().ResultPass(this);
             }

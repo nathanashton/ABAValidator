@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 2;
             CharacterPositionEnd = 8;
             FieldDescription = "Bank/State/Branch BSB Number";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,8 +36,8 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField2Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
-            Rules.Add(new BodyField2Rule2(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new NumericOnly(Line, this));
+            Rules.Add(new HyphenInPositionFive(Line, this));
         }
     }
 }

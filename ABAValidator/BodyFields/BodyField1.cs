@@ -11,14 +11,14 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 1;
             CharacterPositionEnd = 1;
             FieldDescription = "Record Type 1";
-
             AddRules();
         }
 
+        public int Length { get; set; }
         public List<IRule> Rules { get; set; }
         public int CharacterPositionStart { get; set; }
         public int CharacterPositionEnd { get; set; }
@@ -36,7 +36,7 @@
 
         private void AddRules()
         {
-            Rules.Add(new BodyField1Rule1(Line, CharacterPositionStart, CharacterPositionEnd));
+            Rules.Add(new MustBeOne(Line, this));
         }
     }
 }

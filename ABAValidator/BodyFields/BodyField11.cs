@@ -40,6 +40,7 @@
             Rules.Add(new BlankFilled(Line, this));
             Rules.Add(new LeftJustified(Line, this));
             Rules.Add(new NotAllBlanks(Line, this));
+            Rules.Add(new ValidCharacterSet(Line, this));
         }
     }
 }
