@@ -1,38 +1,26 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class LeftJustified : IRule
     {
-        public LeftJustified(Line line, IField field)
+        public LeftJustified(string input)
         {
-            Line = line;
             Specification = "Left Justified";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
-            if (Helpers.IsLeftJustified(result.ToCharArray()))
+            if (Helpers.IsLeftJustified(Input.ToCharArray()))
             {
-                //TODO Need to check that no account number is allowed
                 return new Result().ResultPass(this);
             }
+            return new Result().ResultFail(this);
 
-            try
-            {
-                Convert.ToInt32(result);
-                return new Result().ResultPass(this);
-            }
-            catch (FormatException)
-            {
-                return new Result().ResultFail(this);
-            }
         }
     }
 }

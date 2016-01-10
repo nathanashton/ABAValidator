@@ -9,6 +9,8 @@
     using System.Windows.Data;
     using System.Windows.Media;
     using BodyFields;
+    using HeaderFields;
+    using FooterFields;
     using Interfaces;
     using Microsoft.Win32;
     using TreeView;
@@ -306,11 +308,11 @@
                         {
                             Pass = rule.Pass,
                             Specification = rule.Rule.Specification,
-                            ExtractedText =
-                                "(" +
-                                rule.Rule.Line.GetCharRangeAsString(rule.Rule.Field.CharacterPositionStart,
-                                    rule.Rule.Field.CharacterPositionEnd) + ")",
-                            LineNumber = lineNumber.LineNumber
+                            //ExtractedText =
+                            //    "(" +
+                            //    rule.Rule.Line.GetCharRangeAsString(rule.Rule.Field.CharacterPositionStart,
+                            //        rule.Rule.Field.CharacterPositionEnd) + ")",
+                            //LineNumber = lineNumber.LineNumber
                         };
                         f.Rules.Add(t);
                     }

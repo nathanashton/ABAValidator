@@ -1,8 +1,9 @@
-﻿namespace ABAValidator.BodyFields
+﻿using ABAValidator.Rules;
+
+namespace ABAValidator.BodyFields
 {
     using System.Collections.Generic;
     using Interfaces;
-    using Rules;
 
     public class BodyField6 : IField
     {
@@ -36,10 +37,12 @@
 
         private void AddRules()
         {
-            Rules.Add(new NumericOnly(Line, this));
-            Rules.Add(new RightJustified(Line, this));
-            Rules.Add(new ZeroFilled(Line, this));
-            Rules.Add(new Unsigned(Line, this));
+            var input = Line.GetCharRangeAsString(CharacterPositionStart, CharacterPositionEnd);
+
+            Rules.Add(new NumericOnly(input));
+            Rules.Add(new RightJustified(input));
+            Rules.Add(new ZeroFilled(input));
+            Rules.Add(new Unsigned(input));
         }
     }
 }

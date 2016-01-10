@@ -1,24 +1,21 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class StartWithZeroOne : IRule
     {
-        public StartWithZeroOne(Line line, IField field)
+        public StartWithZeroOne(string input)
         {
-            Line = line;
             Specification = "Must start with 01";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, 1);
-            if (result != "01")
+            if (Input != "01")
             {
                 return new Result().ResultFail(this);
             }

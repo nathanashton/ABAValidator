@@ -82,7 +82,7 @@
                  ItemsSource="{Binding Lines.AllLines}" SelectedItem="{Binding SelectedLine}"
                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <i:Interaction.Behaviors>
-                <global:ScrollIntoViewForListBox />
+                <viewModels:ScrollIntoViewForListBox />
             </i:Interaction.Behaviors>
             <ListBox.ItemTemplate>
                 <DataTemplate>

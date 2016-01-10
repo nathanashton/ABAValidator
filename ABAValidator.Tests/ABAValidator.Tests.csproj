@@ -50,8 +50,22 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BodyField10.cs" />
+    <Compile Include="BlankFilled_Tests.cs" />
+    <Compile Include="BSBFormatFiller_Tests.cs" />
+    <Compile Include="BSBNumber_Tests.cs" />
+    <Compile Include="HyphenInPositionFour_Tests.cs" />
+    <Compile Include="LeftJustified_Tests.cs" />
+    <Compile Include="LettersOnly_Tests.cs" />
+    <Compile Include="MustBeOne_Tests.cs" />
+    <Compile Include="MustBeSeven_Tests.cs" />
+    <Compile Include="MustBeZero_Tests.cs" />
+    <Compile Include="NotAllBlanks_Tests.cs" />
+    <Compile Include="NotAllZeroes_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RightJustified_Tests.cs" />
+    <Compile Include="NumericOnly_Tests.cs" />
+    <Compile Include="StartWithZeroOne_Tests.cs" />
+    <Compile Include="Unsigned_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABAValidator\ABAValidator.csproj">

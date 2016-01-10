@@ -1,28 +1,24 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class NotAllBlanks : IRule
     {
-        public NotAllBlanks(Line line, IField field)
+        public NotAllBlanks(string input)
         {
-            Line = line;
             Specification = "Not all blanks";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd).ToCharArray();
-            if (Helpers.IsBlankFilled(result))
-            {
-                return new Result().ResultFail(this);
-            }
-            return new Result().ResultPass(this);
+
+            //TODO
+            return new Result().ResultFail(this);
+
         }
     }
 }

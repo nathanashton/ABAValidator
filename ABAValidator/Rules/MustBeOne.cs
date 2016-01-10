@@ -1,24 +1,22 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class MustBeOne : IRule
     {
-        public MustBeOne(Line line, IField field)
+        public MustBeOne(string input)
         {
-            Line = line;
             Specification = "Must be number 1";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharAsString(1);
-            if (result == "1")
+            var result = Input.ToCharArray()[0];
+            if (result == '1')
             {
                 return new Result().ResultPass(this);
             }

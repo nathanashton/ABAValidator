@@ -1,8 +1,9 @@
-﻿namespace ABAValidator.BodyFields
+﻿using ABAValidator.Rules;
+
+namespace ABAValidator.BodyFields
 {
     using System.Collections.Generic;
     using Interfaces;
-    using Rules;
 
     public class BodyField1 : IField
     {
@@ -36,7 +37,8 @@
 
         private void AddRules()
         {
-            Rules.Add(new MustBeOne(Line, this));
+            var input = Line.GetCharRangeAsString(CharacterPositionStart, CharacterPositionEnd);
+            Rules.Add(new MustBeOne(input));
         }
     }
 }

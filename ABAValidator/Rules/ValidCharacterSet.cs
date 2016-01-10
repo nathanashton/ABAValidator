@@ -1,24 +1,21 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class ValidCharacterSet : IRule
     {
-        public ValidCharacterSet(Line line, IField field)
+        public ValidCharacterSet(string input)
         {
-            Line = line;
             Specification = "Valid coded character set (ASCII)";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart,Field.CharacterPositionEnd);
-            var result2 = Helpers.IsAscii(result);
+            var result2 = Helpers.IsAscii(Input);
             if (result2)
             {
                 return new Result().ResultPass(this);

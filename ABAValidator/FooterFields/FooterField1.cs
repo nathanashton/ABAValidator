@@ -1,8 +1,7 @@
-﻿namespace ABAValidator.BodyFields
+﻿namespace ABAValidator.FooterFields
 {
     using System.Collections.Generic;
     using Interfaces;
-    using Rules;
 
     public class FooterField1 : IField
     {
@@ -36,6 +35,8 @@
 
         private void AddRules()
         {
+            var input = Line.GetCharRangeAsString(CharacterPositionStart, CharacterPositionEnd);
+
             //TODO
         }
     }

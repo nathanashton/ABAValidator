@@ -1,24 +1,21 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class Unsigned : IRule
     {
-        public Unsigned(Line line, IField field)
+        public Unsigned(string input)
         {
-            Line = line;
             Specification = "Unsigned";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRange(Field.CharacterPositionStart, Field.CharacterPositionEnd);
-            if (result.Contains('-'))
+            if (Input.Contains("-"))
             {
                 return new Result().ResultFail(this);
             }

@@ -1,26 +1,24 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using System;
+using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class NumericOnly : IRule
     {
-        public NumericOnly(Line line, IField field)
+        public NumericOnly(string input)
         {
-            Line = line;
             Specification = "Numeric only";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
             try
             {
-                Convert.ToInt32(result);
+                Convert.ToInt32(Input);
                 return new Result().ResultPass(this);
             }
             catch (FormatException)

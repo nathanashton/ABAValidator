@@ -1,32 +1,29 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class NotAllZeroes : IRule
     {
-        public NotAllZeroes(Line line, IField field)
+        public NotAllZeroes(string input)
         {
-            Line = line;
             Specification = "Not all zeroes";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
             int zeroCount = 0;
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
-            foreach (char c in result)
+            foreach (char c in Input)
             {
                 if (c == '0')
                 {
                     zeroCount++;
                 }
             }
-            if (zeroCount == result.Length)
+            if (zeroCount == Input.Length)
             {
                 return new Result().ResultFail(this);
             }

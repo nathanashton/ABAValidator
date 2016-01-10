@@ -1,29 +1,29 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
-    using System.Linq;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class ValidIndicator : IRule
     {
-        public ValidIndicator(Line line, IField field)
+        public ValidIndicator(string input)
         {
-            Line = line;
             Specification = "Must be N, W, X or Y";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
-            if (result != "N" || result != "W" || result != "X" || result != "Y")
+            if (Input == null)
             {
                 return new Result().ResultFail(this);
             }
-            return new Result().ResultPass(this);
+            if (Input == "N" || Input == "W" || Input == "X" || Input == "Y" || Input == " ")
+            {
+                return new Result().ResultPass(this);
+            }
+            return new Result().ResultFail(this);
         }
     }
 }

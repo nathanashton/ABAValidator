@@ -1,25 +1,23 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using System;
+using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class ValidDate : IRule
     {
-        public ValidDate(Line line, IField field)
+        public ValidDate(string input)
         {
-            Line = line;
             Specification = "Valid Date";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
             DateTime dateTime;
-            if (DateTime.TryParse(result, out dateTime))
+            if (DateTime.TryParse(Input, out dateTime))
             {
                 return new Result().ResultPass(this);
             }

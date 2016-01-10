@@ -1,24 +1,21 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class BSBFormatFiller : IRule
     {
-        public BSBFormatFiller(Line line, IField field)
+        public BSBFormatFiller(string input)
         {
-            Line = line;
             Specification = "Must be 999-999";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
-            if (result != "999-999")
+            if (Input != "999-999")
             {
                 return new Result().ResultFail(this);
             }

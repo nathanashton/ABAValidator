@@ -1,8 +1,9 @@
-﻿namespace ABAValidator.BodyFields
+﻿using ABAValidator.Rules;
+
+namespace ABAValidator.BodyFields
 {
     using System.Collections.Generic;
     using Interfaces;
-    using Rules;
 
     public class BodyField3 : IField
     {
@@ -11,9 +12,9 @@
             Line = line;
             Rules = new List<IRule>();
             RuleResults = new List<Result>();
-            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             CharacterPositionStart = 9;
             CharacterPositionEnd = 17;
+            Length = (CharacterPositionEnd - CharacterPositionStart) + 1;
             FieldDescription = "Account number to be credited / debited";
             AddRules();
         }
@@ -36,10 +37,12 @@
 
         private void AddRules()
         {
-            Rules.Add(new NotAllBlanks(Line, this));
-            Rules.Add(new NotAllZeroes(Line, this));
-            Rules.Add(new RightJustified(Line, this));
-            Rules.Add(new BlankFilled(Line, this));
+            var input = Line.GetCharRangeAsString(CharacterPositionStart, CharacterPositionEnd);
+
+            Rules.Add(new NotAllBlanks(input));
+            Rules.Add(new NotAllZeroes(input));
+            Rules.Add(new RightJustified(input));
+            Rules.Add(new BlankFilled(input));
         }
     }
 }

@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Interfaces;
-    using Rules;
 
     public class BodyField9 : IField
     {
@@ -36,6 +35,8 @@
 
         private void AddRules()
         {
+            var input = Line.GetCharRangeAsString(CharacterPositionStart, CharacterPositionEnd);
+
             //TODO
         }
     }

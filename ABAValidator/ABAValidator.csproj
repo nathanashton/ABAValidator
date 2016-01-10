@@ -87,7 +87,8 @@
     <Compile Include="Rules\BlankFilled.cs" />
     <Compile Include="BodyFields\BodyField7.cs" />
     <Compile Include="Rules\BSBFormatFiller.cs" />
-    <Compile Include="Rules\HyphenInPositionFive.cs" />
+    <Compile Include="Rules\BSBNumber.cs" />
+    <Compile Include="Rules\HyphenInPositionFour.cs" />
     <Compile Include="Rules\LeftJustified.cs" />
     <Compile Include="Rules\LettersOnly.cs" />
     <Compile Include="Rules\MustBeOne.cs" />

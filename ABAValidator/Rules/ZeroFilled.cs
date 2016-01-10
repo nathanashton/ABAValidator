@@ -1,25 +1,22 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
-    using System.Linq;
+﻿using System.Linq;
+using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class ZeroFilled : IRule
     {
-        public ZeroFilled(Line line, IField field)
+        public ZeroFilled(string input)
         {
-            Line = line;
             Specification = "Zero Filled";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharRangeAsString(Field.CharacterPositionStart, Field.CharacterPositionEnd);
-            if (result.Any(t => t == ' '))
+            if (Input.Any(t => t == ' '))
             {
                 return new Result().ResultFail(this);
             }

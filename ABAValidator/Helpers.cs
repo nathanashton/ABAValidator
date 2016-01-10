@@ -32,22 +32,11 @@
             return input[input.Count() - 1] != ' ';
         }
 
-        public static bool IsBlankFilled(char[] input)
+        public static bool IsBlankFilled(char[] input, int expectedLength)
         {
-            var valid = 0;
-            var invalid = 0;
-            foreach (var c in input)
-            {
-                if (c == ' ')
-                {
-                    valid++;
-                }
-                else
-                {
-                    invalid++;
-                }
-            }
-            return invalid <= 0;
+            var c = input.Length;
+
+            return expectedLength == (input.Length + 1);
         }
 
         public static bool IsZeroFilled(char[] input)

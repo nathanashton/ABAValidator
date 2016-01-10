@@ -1,24 +1,22 @@
-﻿namespace ABAValidator.BodyFields.Rules
-{
-    using Interfaces;
-    using System;
+﻿using ABAValidator.Interfaces;
 
+namespace ABAValidator.Rules
+{
     public class MustBeZero : IRule
     {
-        public MustBeZero(Line line, IField field)
+        public MustBeZero(string input)
         {
-            Line = line;
             Specification = "Must be number 0";
+            Input = input;
         }
 
-        public Line Line { get; set; }
+        public string Input { get; set; }
         public string Specification { get; set; }
-        public IField Field { get; set; }
 
         public Result Validate()
         {
-            var result = Line.GetCharAsString(1);
-            if (result == "0")
+            var result = Input.ToCharArray()[0];
+            if (result == '0')
             {
                 return new Result().ResultPass(this);
             }
