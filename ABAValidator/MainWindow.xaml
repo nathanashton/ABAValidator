@@ -6,10 +6,7 @@
         xmlns:viewModels="clr-namespace:ABAValidator"
         xmlns:local="clr-namespace:ABAValidator"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        xmlns:headerFields="clr-namespace:ABAValidator.HeaderFields"
-        xmlns:regularExpressions="clr-namespace:System.Text.RegularExpressions;assembly=System"
         xmlns:treeView="clr-namespace:ABAValidator.TreeView"
-        xmlns:global="clr-namespace:"
         mc:Ignorable="d"
         Title="ABA Validator" Height="585.333" Width="1156.591">
     <Window.Resources>
