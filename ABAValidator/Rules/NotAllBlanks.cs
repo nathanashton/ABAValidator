@@ -15,9 +15,23 @@ namespace ABAValidator.Rules
 
         public Result Validate()
         {
+            var space = 0;
+            var charArray = Input.ToCharArray();
+            foreach (var c in charArray)
+            {
+                if (c == ' ')
+                {
+                    space++;
+                }
+            }
 
-            //TODO
-            return new Result().ResultFail(this);
+
+            if (space == Input.Length)
+            {
+                return new Result().ResultFail(this);
+            }
+
+            return new Result().ResultPass(this);
 
         }
     }

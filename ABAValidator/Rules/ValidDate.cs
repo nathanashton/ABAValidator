@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using ABAValidator.Interfaces;
 
 namespace ABAValidator.Rules
@@ -17,7 +18,7 @@ namespace ABAValidator.Rules
         public Result Validate()
         {
             DateTime dateTime;
-            if (DateTime.TryParse(Input, out dateTime))
+            if (DateTime.TryParseExact(Input, "ddmmyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
             {
                 return new Result().ResultPass(this);
             }

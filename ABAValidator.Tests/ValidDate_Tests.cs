@@ -5,36 +5,36 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ABAValidator.Tests
 {
     [TestClass]
-    public class MustBeOne_Tests
+    public class ValidDate_Tests
     {
 
         [TestMethod]
-        public void Rule_MustBeOne_Valid_True()
+        public void Rule_ValidDate_Valid_True()
         {
-            Assert.IsTrue(Test("1"));
+            Assert.IsTrue(Test("011215"));
         }
 
         [TestMethod]
-        public void Rule_MustBeOne_NotValid_False()
+        public void Rule_ValidDate_NotValidEmpty_False()
         {
-            Assert.IsFalse(Test("2"));
+            Assert.IsFalse(Test("  "));
         }
 
         [TestMethod]
-        public void Rule_MustBeOne_NotValidEmpty_False()
+        public void Rule_ValidDate_NotValidDay_False()
         {
-            Assert.IsFalse(Test(" "));
+            Assert.IsFalse(Test("321215"));
         }
 
         [TestMethod]
-        public void Rule_MustBeOne_NotValidLetter_False()
+        public void Rule_ValidDate_NotValidLetters_False()
         {
-            Assert.IsFalse(Test("A"));
+            Assert.IsFalse(Test("01AA1215"));
         }
 
         private bool Test(string input)
         {
-            IRule rule = new MustBeOne(input);
+            IRule rule = new ValidDate(input);
             var result = rule.Validate();
             return result.Pass;
         }

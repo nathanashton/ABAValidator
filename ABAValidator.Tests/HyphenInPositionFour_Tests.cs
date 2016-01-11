@@ -23,7 +23,7 @@ namespace ABAValidator.Tests
         [TestMethod]
         public void Rule_HyphenInPositionFour_NotValidEmpty_False()
         {
-            Assert.IsFalse(Test(""));
+            Assert.IsFalse(Test(" "));
         }
 
         private bool Test(string input)

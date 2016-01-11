@@ -67,6 +67,11 @@
     <Compile Include="NumericOnly_Tests.cs" />
     <Compile Include="StartWithZeroOne_Tests.cs" />
     <Compile Include="Unsigned_Tests.cs" />
+    <Compile Include="ValidCharacterSet_Tests.cs" />
+    <Compile Include="ValidDate_Tests.cs" />
+    <Compile Include="ValidIndicator_Tests.cs" />
+    <Compile Include="ValidTransactionCode_Tests.cs" />
+    <Compile Include="ZeroFilled_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ABAValidator\ABAValidator.csproj">

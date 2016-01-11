@@ -9,7 +9,7 @@ namespace ABAValidator.Tests
     {
 
         [TestMethod]
-        public void Rule_NotAllBlanks_ValidWWithSpaces_True()
+        public void Rule_NotAllBlanks_ValidWithSpaces_True()
         {
             Assert.IsTrue(Test("123 A T"));
         }

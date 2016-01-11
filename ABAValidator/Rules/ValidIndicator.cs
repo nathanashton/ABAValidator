@@ -6,7 +6,7 @@ namespace ABAValidator.Rules
     {
         public ValidIndicator(string input)
         {
-            Specification = "Must be N, W, X or Y";
+            Specification = "Must be N, W, X or Y or blank";
             Input = input;
         }
 

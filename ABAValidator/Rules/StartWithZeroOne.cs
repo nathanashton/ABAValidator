@@ -15,7 +15,10 @@ namespace ABAValidator.Rules
 
         public Result Validate()
         {
-            if (Input != "01")
+            var f = Input[0].ToString();
+            var s = Input[1].ToString();
+            string result = f + s;
+            if (result != "01")
             {
                 return new Result().ResultFail(this);
             }

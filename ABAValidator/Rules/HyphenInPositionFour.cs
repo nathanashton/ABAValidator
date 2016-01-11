@@ -15,6 +15,11 @@ namespace ABAValidator.Rules
 
         public Result Validate()
         {
+            if (Input.Length < 4)
+            {
+                return new Result().ResultFail(this);
+
+            }
             var result = Input.ToCharArray()[3];
             if (result == '-')
             {

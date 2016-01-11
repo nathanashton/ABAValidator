@@ -62,7 +62,8 @@
                 var rule = value as TreeViewRule;
                 if (rule != null)
                 {
-                    SelectedLine = Lines.AllLines.First(x => x.LineNumber == rule.LineNumber);
+                    //TODO Exception 
+                   // SelectedLine = Lines.AllLines.First(x => x.LineNumber == rule.LineNumber);
                 }
 
                 NotifyPropertyChanged("SelectedItem");
