@@ -16,10 +16,9 @@ namespace ABAValidator.Rules
 
         public Result Validate()
         {
-            if (String.IsNullOrEmpty(Input))
+            if (String.IsNullOrEmpty(Input) || String.IsNullOrWhiteSpace(Input))
             {
                 return new Result().ResultFail(this);
-
             }
             if (Input[3] != '-')
             {

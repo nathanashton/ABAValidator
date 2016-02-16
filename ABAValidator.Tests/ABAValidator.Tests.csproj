@@ -51,10 +51,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BlankFilled_Tests.cs" />
-    <Compile Include="BSBFormatFiller_Tests.cs" />
-    <Compile Include="BSBNumber_Tests.cs" />
-    <Compile Include="HyphenInPositionFour_Tests.cs" />
+    <Compile Include="BlankFilledTests.cs" />
+    <Compile Include="BsbFormatFillerTests.cs" />
+    <Compile Include="BsbNumberTests.cs" />
+    <Compile Include="HyphenPositionFourTests.cs" />
     <Compile Include="LeftJustified_Tests.cs" />
     <Compile Include="LettersOnly_Tests.cs" />
     <Compile Include="MustBeOne_Tests.cs" />
